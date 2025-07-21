@@ -46,24 +46,6 @@ export default function About() {
             </ul>
           </div>
         </div>
-
-        {/* <div className="mt-10 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-3">
-            Connect With Us
-          </h2>
-          <p className="text-gray-700 dark:text-gray-300">
-            We love hearing from our community! For inquiries, collaborations,
-            or just to say hello, feel free to reach out to us at{" "}
-            <a
-              href="mailto:info@ourclothingbrand.com"
-              className="text-blue-600 dark:text-blue-400 hover:underline"
-            >
-              info@makeit.com
-            </a>
-            . Follow us on social media to stay updated on our latest
-            collections and news!
-          </p>
-        </div> */}
       </div>
     </div>
   );

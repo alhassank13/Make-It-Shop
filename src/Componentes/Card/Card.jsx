@@ -1,56 +1,16 @@
-// import React, { useContext } from "react";
-import {
-  Star,
-  //   Heart,
-  //   HeartOff,
-  //   ChevronRight,
-  //   ShoppingCart,
-  //   ChevronLeft,
-} from "lucide-react";
+import React from "react";
+import { Star } from "lucide-react";
 import { Link } from "react-router-dom";
-// import { cartContext } from "../../Context/CartContext/CartContext";
-// import { wishListContext } from "../../Context/WishlistContext/WishlistContext";
 
 export default function Card({ item }) {
-  // let { addProductToCart } = useContext(cartContext);
-  // let { isInWishList, removewishListItem, addProductToWishList } =
-  //   useContext(wishListContext);
-
-  // const inWishList = isInWishList(item.id);
-
   return (
     <div className="relative overflow-hidden bg-white dark:bg-gray-200 shadow-lg rounded-2xl flex flex-col hover:shadow-xl transform hover:scale-[1.01] transition-all duration-300 ease-in-out cursor-pointer group/card">
-      {/* Heart Icon */}
-      <div
-      // className="absolute top-3 right-3 p-2 bg-white/95 shadow-md dark:bg-gray-800/70 rounded-full cursor-pointer opacity-0 group-hover/card:opacity-100 transform -translate-y-full group-hover/card:translate-y-0 transition-all duration-300 z-20 hover:scale-110"
-      // onClick={() =>
-      //   inWishList
-      //     ? removewishListItem(item.id)
-      //     : addProductToWishList(item.id)
-      // }
-      >
-        {/* {inWishList ? (
-          <Heart className="size-5 text-red-500 fill-red-500" />
-        ) : (
-          <Heart className="size-5 text-gray-500" />
-        )} */}
-      </div>
-
-      {/* Left Chevron */}
-      {/* <div className="absolute top-1/4 left-1.5 p-2 shadow-md bg-white/70 dark:bg-gray-800 rounded-full cursor-pointer opacity-0 group-hover/card:opacity-100 transform -translate-x-full group-hover/card:translate-x-0 transition-all duration-300 z-20">
-        <ChevronLeft className="size-5 text-gray-500" />
-      </div> */}
-
-      {/* Right Chevron */}
-      {/* <div className="absolute top-1/4 right-1.5 p-2 shadow-md bg-white/70 dark:bg-gray-800/70 rounded-full cursor-pointer opacity-0 group-hover/card:opacity-100 transform translate-x-full group-hover/card:translate-x-0 transition-all duration-300 z-20">
-        <ChevronRight className="size-5 text-gray-500" />
-      </div> */}
-
+      {/* Product card content */}
       <Link
         to={`/productDetails/${item.id}`}
         className="p-4 sm:p-5 flex flex-col flex-grow"
       >
-        {/* Product Image */}
+        {/* Product image */}
         <div className="relative overflow-hidden rounded-xl mb-4 group/image">
           <img
             className="w-full h-48 scale-110 object-cover rounded-xl transition-transform duration-300 group-hover/image:scale-125"
@@ -63,21 +23,23 @@ export default function Card({ item }) {
           </div>
         </div>
 
-        {/* Brand */}
+        {/* Product brand */}
         <p className="text-sm text-gray-600 dark:text-gray-500 font-semibold mb-1">
           {item.brand?.name}
         </p>
 
-        {/* Title & Rating */}
+        {/* Product title + rating */}
         <div className="flex justify-between items-start mb-1">
           <h3
-            className="text-base font-semibold text-gray-900  line-clamp-2"
+            className="text-base font-semibold text-gray-900 line-clamp-2"
             title={item.title}
           >
+            {/* Truncate long titles */}
             {item.title?.split(" ").slice(0, 12).join(" ")}
             {item.title?.split(" ").length > 12 ? "..." : ""}
           </h3>
 
+          {/* Rating stars */}
           <div className="flex items-center space-x-1">
             <Star className="size-5 text-yellow-400" />
             <span className="dark:text-gray-700">{item.rating.rate}</span>
@@ -87,18 +49,14 @@ export default function Card({ item }) {
           </div>
         </div>
 
-        {/* Category & Availability */}
+        {/* Category */}
         <span className="text-sm text-gray-600 dark:text-gray-500">
           {item.category}
         </span>
+
+        {/* Stock availability */}
         <div className="mt-1">
-          <span className="text-sm text-primary ">In Stock</span>
-          {/* {item.quantity > 0 ? (
-          ) : (
-            <span className="text-sm text-red-500 dark:text-gray-300">
-              Out of Stock
-            </span>
-          )} */}
+          <span className="text-sm text-primary">In Stock</span>
         </div>
 
         {/* Price */}
