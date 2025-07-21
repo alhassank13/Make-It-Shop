@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+
+@utility container {
+  margin: 0 auto;
+  max-width: 1200px;
+  /* Added max-width for better control */
+  padding: 0 1rem;
+  /* Added horizontal padding */
+}
+
