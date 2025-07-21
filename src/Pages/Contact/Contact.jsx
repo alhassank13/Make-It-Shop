@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react"; // Import useEffect
 import { Mail, Phone, MapPin } from "lucide-react"; // Importing icons from lucide-react
 
 export default function App() {
@@ -12,6 +12,17 @@ export default function App() {
 
   // State to control the visibility of the success modal
   const [showModal, setShowModal] = useState(false);
+
+  /**
+   * Scrolls the window to the top when the component mounts.
+   * This ensures the user starts at the top of the contact form.
+   * Note: This will only have a visible effect if the page content
+   * is tall enough to create a scrollbar. If the content fits within
+   * the viewport, no scroll will be observed.
+   */
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []); // Empty dependency array ensures this runs only once on mount
 
   /**
    * Handles changes in form input fields.
